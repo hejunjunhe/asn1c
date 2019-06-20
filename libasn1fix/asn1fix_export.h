@@ -6,7 +6,7 @@
 #define	ASN1FIX_EXPORT_H
 
 #include "asn1fix_tags.h"
-
+struct asn1_namespace_s;   /* Forward declaration. */
 /*
  * Create a human-readable representation of a reference and value.
  */
@@ -18,13 +18,15 @@ char const *asn1f_printable_value(asn1p_value_t *value);
  */
 asn1p_expr_t *asn1f_lookup_symbol_ex(
 		asn1p_t *asn,
+		struct asn1_namespace_s *ns,
 		asn1p_expr_t *expr,
 		asn1p_ref_t *ref);
 
 /*
  *  Exportable version of an asn1f_class_access().
  */
-asn1p_expr_t *asn1f_class_access_ex(asn1p_t *asn, asn1p_module_t *mod,
+asn1p_expr_t *asn1f_class_access_ex(asn1p_t *asn, 
+        asn1p_module_t *mod,
 	asn1p_expr_t *expr, asn1p_expr_t *rhs_rspecs, asn1p_ref_t *);
 
 /*

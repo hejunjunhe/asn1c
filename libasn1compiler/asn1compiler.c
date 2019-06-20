@@ -5,7 +5,6 @@
 
 static void default_logger_cb(int, const char *fmt, ...);
 static int asn1c_compile_expr(arg_t *arg);
-static int asn1c_attach_streams(asn1p_expr_t *expr);
 
 int
 asn1_compile(asn1p_t *asn, const char *datadir, enum asn1c_flags flags,
@@ -139,7 +138,7 @@ asn1c_compile_expr(arg_t *arg) {
 	return ret;
 }
 
-static int
+int
 asn1c_attach_streams(asn1p_expr_t *expr) {
 	compiler_streams_t *cs;
 	int i;

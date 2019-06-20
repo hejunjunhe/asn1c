@@ -1,5 +1,6 @@
 #include "asn1fix_internal.h"
 #include "asn1fix_export.h"
+#include "asn1_namespace.h"
 
 extern arg_t a1f_replace_me_with_proper_interface_arg;
 
@@ -7,6 +8,7 @@ extern arg_t a1f_replace_me_with_proper_interface_arg;
 asn1p_expr_t *
 asn1f_lookup_symbol_ex(
 		asn1p_t *asn,
+                asn1_namespace_t *ns, 
 		asn1p_expr_t *expr,
 		asn1p_ref_t *ref) {
 	arg_t arg;

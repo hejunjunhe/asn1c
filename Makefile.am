@@ -1,7 +1,7 @@
 
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = 				\
+SUBDIRS = libasn1common				\
 	libasn1parser libasn1fix	\
 	libasn1print libasn1compiler	\
 	skeletons examples \

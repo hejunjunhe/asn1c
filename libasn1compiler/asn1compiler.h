@@ -88,4 +88,6 @@ int asn1_compile(asn1p_t *asn, const char *datadir, enum asn1c_flags,
 
 void asn1c__add_pdu_type(const char *typename);
 
+int asn1c_attach_streams(asn1p_expr_t *expr);
+
 #endif	/* ASN1_COMPILER_H */

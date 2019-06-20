@@ -1,7 +1,8 @@
 
 AM_CFLAGS = @ADD_CFLAGS@
 AM_CPPFLAGS =				\
-	-I$(top_srcdir)/libasn1parser
+	-I$(top_srcdir)/libasn1parser\
+	-I$(top_srcdir)/libasn1common
 
 noinst_LTLIBRARIES = libasn1fix.la
 
