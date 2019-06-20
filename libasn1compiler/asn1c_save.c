@@ -64,7 +64,9 @@ asn1c_save_compiled_output(arg_t *arg, const char *datadir,
 	TQ_FOR(mod, &(arg->asn->modules), mod_next) {
 		TQ_FOR(arg->expr, &(mod->members), next) {
 			if(asn1_lang_map[arg->expr->meta_type]
-				[arg->expr->expr_type].type_cb) {
+				[arg->expr->expr_type].type_cb
+                                && !(arg->expr->expr_type == A1TC_REFERENCE
+                                && arg->expr->meta_type == AMT_VALUE)) {
 				if(asn1c_dump_streams(arg, deps, optc, argv))
 					return -1;
 			}
@@ -252,7 +254,6 @@ asn1c_save_streams(arg_t *arg, asn1c_fdeps_t *deps, int optc, char **argv) {
 			expr->Identifier, expr->_lineno);
 		return -1;
 	}
-
 	fp_c = asn1c_open_file(expr->Identifier, ".c", &tmpname_c);
 	fp_h = asn1c_open_file(expr->Identifier, ".h", &tmpname_h);
 	if(fp_c == NULL || fp_h == NULL) {
